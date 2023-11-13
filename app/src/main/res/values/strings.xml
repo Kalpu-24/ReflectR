@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ReflectR</string>
+    <string name="logo">LOGO</string>
+    <string name="app_desc">Your Best Personal Journal and Mood Tracking Solution</string>
+    <string name="next">NEXT</string>
+    <string name="arrow">arrow</string>
+    <string name="get_started">Get Started</string>
+    <string name="illustration">illustration</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="verify">Verify</string>
+    <string name="otp">OTP</string>
+</resources>

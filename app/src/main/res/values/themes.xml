@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ReflectR" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="ThemeOverlay.AppTheme.TextInputLayout.Outlined" parent="">
+        <item name="colorControlActivated">@color/material_dynamic_primary60</item>
+    </style>
+
+    <style name="Theme.ReflectR" parent="Base.Theme.ReflectR" />
+</resources>
