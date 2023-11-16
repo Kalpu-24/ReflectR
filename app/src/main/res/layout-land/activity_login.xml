@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary99"
+    tools:context=".LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/illustration"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/illustration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".5"
+        app:srcCompat="@drawable/_219593_business_marketing_strategy_plan_project_icon" />
+
+    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
+        android:id="@+id/phone_number_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:focusedByDefault="true"
+        android:hint="@string/phone_number"
+        android:textColorHint="@drawable/text_input_layout_stroke"
+        android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@drawable/text_input_layout_stroke"
+        app:boxStrokeWidth="3dp"
+        app:counterTextColor="@drawable/text_input_layout_stroke"
+        app:cursorColor="@color/material_dynamic_primary60"
+        app:errorTextColor="@color/material_dynamic_primary60"
+        app:helperTextTextColor="@drawable/text_input_layout_stroke"
+        app:hintEnabled="true"
+        app:hintTextColor="@drawable/text_input_layout_stroke"
+        app:layout_constraintBottom_toTopOf="@+id/get_otp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/illustration"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".45"
+        app:placeholderTextColor="@drawable/text_input_layout_stroke"
+        app:prefixTextColor="@drawable/text_input_layout_stroke"
+        app:suffixTextColor="@drawable/text_input_layout_stroke">
+
+        <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/material_dynamic_primary60"
+            android:textColorHighlight="@drawable/text_highlight"
+            android:textColorHint="@color/material_dynamic_primary60"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+    </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
+
+    <Button
+        android:id="@+id/get_otp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:text="@string/send_otp"
+        android:textAllCaps="true"
+        android:textColor="@color/material_dynamic_neutral99"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/illustration"
+        app:layout_constraintWidth_percent=".45"
+        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/otp_view"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:cursorVisible="true"
+        android:hint="@string/hint"
+        android:inputType="number"
+        android:itemBackground="@color/material_dynamic_neutral99"
+        android:padding="6sp"
+        android:textColor="@color/material_dynamic_primary60"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:cursorColor="@color/material_dynamic_primary60"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
+        app:itemCount="6"
+        app:itemHeight="48dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="6dp"
+        app:itemWidth="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/get_otp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/illustration"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".45"
+        app:lineColor="@drawable/text_input_layout_stroke"
+        app:lineWidth="2dp"
+        app:viewType="rectangle" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="40dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/material_dynamic_primary60"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/illustration" />
+
+    <Button
+        android:id="@+id/resend_otp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:text="@string/resend_otp"
+        android:textAllCaps="true"
+        android:textColor="@color/material_dynamic_neutral99"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/illustration"
+        app:layout_constraintWidth_percent=".45"
+        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

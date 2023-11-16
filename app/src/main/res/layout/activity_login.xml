@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary99"
+    tools:context=".LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/illustration"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/illustration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/_219593_business_marketing_strategy_plan_project_icon"
+        app:layout_constraintHeight_percent=".5" />
+
+    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/phone_number"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:hintTextColor="@drawable/text_input_layout_stroke"
+        app:hintEnabled="true"
+        android:textColorHint="@drawable/text_input_layout_stroke"
+        android:focusedByDefault="true"
+        app:suffixTextColor="@drawable/text_input_layout_stroke"
+        app:prefixTextColor="@drawable/text_input_layout_stroke"
+        app:cursorColor="@color/material_dynamic_primary60"
+        app:errorTextColor="@color/material_dynamic_primary60"
+        app:counterTextColor="@drawable/text_input_layout_stroke"
+        app:helperTextTextColor="@drawable/text_input_layout_stroke"
+        app:placeholderTextColor="@drawable/text_input_layout_stroke"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@drawable/text_input_layout_stroke"
+        app:boxStrokeWidth="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/illustration"
+        app:layout_constraintVertical_bias="0.0"
+        android:id="@+id/phone_number_layout"
+        app:layout_constraintWidth_percent=".8">
+
+        <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/material_dynamic_primary60"
+            android:textColorHighlight="@drawable/text_highlight"
+            android:textColorHint="@color/material_dynamic_primary60"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+    </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
+
+    <Button
+        android:id="@+id/get_otp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:text="@string/send_otp"
+        android:textAllCaps="true"
+        android:textColor="@color/material_dynamic_neutral99"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/otp_view"
+        style="@style/PinWidget.PinView"
+        app:layout_constraintWidth_percent=".8"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cursorVisible="true"
+        android:padding="6sp"
+        android:hint="@string/hint"
+        android:visibility="gone"
+        android:inputType="number"
+        android:itemBackground="@color/material_dynamic_neutral99"
+        android:textColor="@color/material_dynamic_primary60"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cursorColor="@color/material_dynamic_primary60"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
+        app:itemCount="6"
+        app:itemHeight="48dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="6dp"
+        app:itemWidth="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/illustration"
+        app:layout_constraintVertical_bias="0.0"
+        app:lineColor="@drawable/text_input_layout_stroke"
+        app:lineWidth="2dp"
+        app:viewType="rectangle" />
+
+    <ProgressBar
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        android:id="@+id/progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="40dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/material_dynamic_primary60"/>
+    <Button
+        android:id="@+id/resend_otp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:text="@string/resend_otp"
+        android:visibility="gone"
+        android:textAllCaps="true"
+        android:textColor="@color/material_dynamic_neutral99"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
