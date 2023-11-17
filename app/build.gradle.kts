@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("D:\\kalpAndroidSign.jks")
+            storePassword = "KalpIsOld@24"
+            keyAlias = "kalpu"
+            keyPassword = "KalpIsOld@24"
+        }
+    }
     namespace = "net.kalp.reflectr"
     compileSdk = 34
 

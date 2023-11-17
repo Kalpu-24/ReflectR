@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -105,7 +104,7 @@ public class ProfileFormActivity extends AppCompatActivity {
                     byte[] data = baos.toByteArray();
                     StorageReference storageReference =  storage.getReference().child("profile_pics").child(firebaseUser.getUid());
                     UploadTask uploadTask = storageReference.putBytes(data);
-                    Task<Uri> task = uploadTask.continueWithTask(task1 -> {
+                    uploadTask.continueWithTask(task1 -> {
                         if (!task1.isSuccessful()) {
                             throw Objects.requireNonNull(task1.getException());
                         }
