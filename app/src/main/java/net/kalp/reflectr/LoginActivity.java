@@ -178,8 +178,7 @@ public class LoginActivity extends AppCompatActivity {
         assert firebaseUser != null;
         String userUid = firebaseUser.getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("users").document(userUid);
-        docRef.get().addOnCompleteListener(task -> {
+        db.collection("users").document(userUid).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 assert document != null;

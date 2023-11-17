@@ -8,4 +8,11 @@
             @android:color/transparent
         </item>
     </style>
+    <style name="ThemeOverlay.AppTheme.TextInputLayout.Outlined" parent="">
+        <item name="colorControlActivated">@color/material_dynamic_primary60</item>
+    </style>
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">38%</item>
+    </style>
 </resources>

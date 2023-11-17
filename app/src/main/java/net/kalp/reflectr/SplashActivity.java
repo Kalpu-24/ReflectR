@@ -24,6 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import net.kalp.reflectr.logineduser.HomeActivity;
+import net.kalp.reflectr.logineduser.ProfileFormActivity;
+
+import java.util.Objects;
+
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 
@@ -57,8 +62,26 @@ public class SplashActivity extends AppCompatActivity {
                     if (firebaseUser==null) {
                         startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
                         finish();
+                    }else {
+                        FirebaseFirestore.getInstance().collection("users").document(firebaseUser.getUid()).get().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                if (task.getResult().exists()) {
+                                    if (Boolean.TRUE.equals(task.getResult().getBoolean("is_profile_completed"))) {
+                                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                                        finish();
+                                    } else {
+                                        startActivity(new Intent(getApplicationContext(), ProfileFormActivity.class));
+                                        finish();
+                                    }
+                                } else {
+                                    startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
+                                    finish();
+                                }
+                            } else {
+                                Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

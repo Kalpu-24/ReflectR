@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,8 +17,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReflectR"
         tools:targetApi="31">
+        <!-- Trigger Google Play services to install the backported photo picker module. -->
+        <!--suppress AndroidDomInspection -->
+        <service android:name="com.google.android.gms.metadata.ModuleDependencies"
+            android:enabled="false"
+            android:exported="false"
+            tools:ignore="MissingClass">
+            <intent-filter>
+                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+            </intent-filter>
+            <meta-data android:name="photopicker_activity:0:required" android:value="" />
+        </service>
         <activity
-            android:name=".LoginActivity"
+            android:name=".logineduser.ProfileFormActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true" />
+        <activity
+            android:name=".logineduser.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoNetworkActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
@@ -26,7 +49,8 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true" />
         <activity
             android:name=".WelcomeActivity"
             android:exported="true" />

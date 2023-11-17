@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary95"
+    android:contentDescription="@string/app_name"
+    android:orientation="vertical"
+    tools:context=".logineduser.ProfileFormActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:fontFamily="sans-serif"
+            android:text="@string/personal_details"
+            android:textColor="@color/material_dynamic_primary20"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/profile_pic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/stroke"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="120dp"
+            android:background="@color/material_dynamic_neutral30"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1.5:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".72"
+            app:shapeAppearance="@style/roundedImageView"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:ignore="ImageContrastCheck" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="120dp"
+            android:padding="2dp"
+            android:background="@color/material_dynamic_primary95"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1.5:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".72"
+            app:shapeAppearance="@style/roundedImageView"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:ignore="ImageContrastCheck" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="120dp"
+            android:padding="2dp"
+            android:src="@drawable/placeholder_profile_pic"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1.5:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".72"
+            app:shapeAppearance="@style/roundedImageView"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/name_layout"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/name_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name_layout"
+            app:layout_constraintWidth_percent=".08"
+            app:srcCompat="@drawable/outline_person_outline_24"
+            app:tint="@color/material_dynamic_neutral20"
+            android:contentDescription="@string/logo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_layout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/username"
+            android:textColorHint="@drawable/text_hint_color"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/material_dynamic_primary60"
+            app:boxStrokeWidth="2dp"
+            app:counterTextColor="@color/material_dynamic_primary60"
+            app:cursorColor="@color/material_dynamic_primary60"
+            app:errorTextColor="@color/material_dynamic_primary60"
+            app:helperTextTextColor="@color/material_dynamic_primary60"
+            app:hintEnabled="true"
+            app:hintTextColor="@drawable/text_hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_pic"
+            app:layout_constraintWidth_percent=".72"
+            app:placeholderTextColor="@drawable/text_hint_color"
+            app:prefixTextColor="@color/material_dynamic_primary60"
+            app:suffixTextColor="@color/material_dynamic_primary60"
+            tools:ignore="InefficientWeight">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:id="@+id/name"
+                android:textColor="@color/material_dynamic_primary40"
+                android:textColorHighlight="@drawable/text_highlight"
+                android:textColorHint="@drawable/text_hint_color"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/email_layout"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/email_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/email_layout"
+            app:layout_constraintWidth_percent=".08"
+            app:srcCompat="@drawable/outline_mail_24"
+            app:tint="@color/material_dynamic_neutral20" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_layout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/email"
+            android:textColorHint="@drawable/text_hint_color"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/material_dynamic_primary60"
+            app:boxStrokeWidth="2dp"
+            app:counterTextColor="@color/material_dynamic_primary60"
+            app:cursorColor="@color/material_dynamic_primary60"
+            app:errorTextColor="@color/material_dynamic_primary60"
+            app:helperTextTextColor="@color/material_dynamic_primary60"
+            app:hintEnabled="true"
+            app:hintTextColor="@drawable/text_hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_layout"
+            app:layout_constraintWidth_percent=".72"
+            app:placeholderTextColor="@drawable/text_hint_color"
+            tools:ignore="InefficientWeight">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:id="@+id/email"
+                android:textColor="@color/material_dynamic_neutral40"
+                android:textColorHighlight="@drawable/text_highlight"
+                android:textColorHint="@drawable/text_hint_color"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/age_layout"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/age_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/age_layout"
+            app:layout_constraintWidth_percent=".08"
+            app:srcCompat="@drawable/outline_cake_24"
+            app:tint="@color/material_dynamic_neutral20" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/age_layout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/age"
+            android:textColorHint="@drawable/text_hint_color"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/material_dynamic_primary60"
+            app:boxStrokeWidth="2dp"
+            app:counterTextColor="@color/material_dynamic_primary60"
+            app:cursorColor="@color/material_dynamic_primary60"
+            app:errorTextColor="@color/material_dynamic_primary60"
+            app:helperTextTextColor="@color/material_dynamic_primary60"
+            app:hintEnabled="true"
+            app:hintTextColor="@drawable/text_hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email_layout"
+            app:layout_constraintWidth_percent=".72"
+            app:placeholderTextColor="@drawable/text_hint_color"
+            tools:ignore="InefficientWeight">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:id="@+id/age"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="@color/material_dynamic_neutral40"
+                android:textColorHighlight="@drawable/text_highlight"
+                android:textColorHint="@drawable/text_hint_color"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/location"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/location"
+            app:layout_constraintWidth_percent=".08"
+            app:srcCompat="@drawable/outline_share_location_24"
+            app:tint="@color/material_dynamic_neutral20" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:id="@+id/location"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age_layout"
+            app:layout_constraintWidth_percent=".72"
+            android:baselineAligned="false">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_layout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:hint="@string/city"
+                android:textColorHint="@drawable/text_hint_color"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/material_dynamic_primary60"
+                app:boxStrokeWidth="2dp"
+                app:counterTextColor="@color/material_dynamic_primary60"
+                app:cursorColor="@color/material_dynamic_primary60"
+                app:errorTextColor="@color/material_dynamic_primary60"
+                app:helperTextTextColor="@color/material_dynamic_primary60"
+                app:hintEnabled="true"
+                app:hintTextColor="@drawable/text_hint_color"
+                app:placeholderTextColor="@drawable/text_hint_color"
+                tools:ignore="InefficientWeight">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/material_dynamic_neutral40"
+                    android:textColorHighlight="@drawable/text_highlight"
+                    android:maxLines="1"
+                    android:id="@+id/city"
+                    android:textColorHint="@drawable/text_hint_color"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                tools:ignore="UselessLeaf" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/country_layout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:hint="@string/country"
+                android:textColorHint="@drawable/text_hint_color"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/material_dynamic_primary60"
+                app:boxStrokeWidth="2dp"
+                app:counterTextColor="@color/material_dynamic_primary60"
+                app:cursorColor="@color/material_dynamic_primary60"
+                app:errorTextColor="@color/material_dynamic_primary60"
+                app:helperTextTextColor="@color/material_dynamic_primary60"
+                app:hintEnabled="true"
+                app:hintTextColor="@drawable/text_hint_color"
+                app:placeholderTextColor="@drawable/text_hint_color"
+                tools:ignore="InefficientWeight">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:id="@+id/country"
+                    android:textColor="@color/material_dynamic_neutral40"
+                    android:textColorHighlight="@drawable/text_highlight"
+                    android:textColorHint="@drawable/text_hint_color"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/bio_layout"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/bio_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bio_layout"
+            app:layout_constraintWidth_percent=".08"
+            app:srcCompat="@drawable/outline_error_outline_24"
+            app:tint="@color/material_dynamic_neutral20" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bio_layout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/bio"
+            android:textColorHint="@drawable/text_hint_color"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputLayout.Outlined"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/material_dynamic_primary60"
+            app:boxStrokeWidth="2dp"
+            app:counterTextColor="@color/material_dynamic_primary60"
+            app:cursorColor="@color/material_dynamic_primary60"
+            app:errorTextColor="@color/material_dynamic_primary60"
+            app:helperTextTextColor="@color/material_dynamic_primary60"
+            app:hintEnabled="true"
+            app:hintTextColor="@drawable/text_hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            app:layout_constraintWidth_percent=".72"
+            app:placeholderTextColor="@drawable/text_hint_color"
+            tools:ignore="InefficientWeight">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:id="@+id/bio"
+                android:textColor="@color/material_dynamic_neutral40"
+                android:textColorHighlight="@drawable/text_highlight"
+                android:textColorHint="@drawable/text_hint_color"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/Submit"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bio_layout"
+            android:backgroundTint="@color/material_dynamic_primary60"
+            android:textColor="@color/material_dynamic_neutral99"
+            app:layout_constraintWidth_percent=".85"
+            tools:ignore="VisualLintButtonSize" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginEnd="411dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Submit"
+            tools:ignore="UselessLeaf" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
