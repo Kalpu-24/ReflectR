@@ -4,6 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary99"
     tools:context=".logineduser.HomeActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_primary95"
+        app:elevation="5dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:itemIconTint="@color/material_dynamic_primary50"
+        app:itemTextColor="@color/material_dynamic_primary50"
+        android:theme="@style/BottomNavigationView"
+        app:menu="@menu/bottom_navigation_bar"
+        tools:ignore="VisualLintBottomNav" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addJournalFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/baseline_add_24"
+        android:theme="@style/MyFAB"
+        app:backgroundTint="@color/material_dynamic_primary95"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/material_dynamic_primary40" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/fragment_container_view"
+        android:name="net.kalp.reflectr.logineduser.HomeFragemnts.JournalsFragment"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_journals" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

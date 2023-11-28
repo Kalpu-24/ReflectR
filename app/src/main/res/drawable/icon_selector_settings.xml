@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <!-- When selected, use white -->
+        <item android:drawable="@drawable/outline_settings"
+            android:state_checked="false" />
+        <!-- When not selected, use black-->
+        <item android:drawable="@drawable/filled_settings"
+            android:state_checked="true" />
+</selector>
