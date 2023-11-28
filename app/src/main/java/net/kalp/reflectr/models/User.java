@@ -19,7 +19,7 @@ public class User{
     private String bio;
     private String City;
     private String Country;
-    private List<Topics> topics;
+    private List<String> categories;
     private @ServerTimestamp Date created_at;
     private @ServerTimestamp Date updated_at;
 
@@ -117,14 +117,6 @@ public class User{
         Country = country;
     }
 
-    public List<Topics> getTopics() {
-        return topics;
-    }
-
-    public void setTopics(List<Topics> topics) {
-        this.topics = topics;
-    }
-
     public Date getCreated_at() {
         return created_at;
     }
@@ -141,17 +133,25 @@ public class User{
         this.updated_at = updated_at;
     }
 
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return isIs_profile_completed() == user.isIs_profile_completed() && getUsername().equals(user.getUsername()) && getEmail().equals(user.getEmail()) && getAge().equals(user.getAge()) && getPhone().equals(user.getPhone()) && getProfile_pic().equals(user.getProfile_pic()) && getBio().equals(user.getBio()) && getCity().equals(user.getCity()) && getCountry().equals(user.getCountry()) && Objects.equals(getTopics(), user.getTopics()) && Objects.equals(created_at, user.created_at) && Objects.equals(updated_at, user.updated_at);
+        return isIs_profile_completed() == user.isIs_profile_completed() && getUsername().equals(user.getUsername()) && getEmail().equals(user.getEmail()) && getAge().equals(user.getAge()) && getPhone().equals(user.getPhone()) && getProfile_pic().equals(user.getProfile_pic()) && getBio().equals(user.getBio()) && getCity().equals(user.getCity()) && getCountry().equals(user.getCountry()) && Objects.equals(created_at, user.created_at) && Objects.equals(updated_at, user.updated_at);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUsername(), isIs_profile_completed(), getEmail(), getAge(), getPhone(), getProfile_pic(), getBio(), getCity(), getCountry(), getTopics(), created_at, updated_at);
+        return Objects.hash(getUsername(), isIs_profile_completed(), getEmail(), getAge(), getPhone(), getProfile_pic(), getBio(), getCity(), getCountry(), created_at, updated_at);
     }
 
     public static class Builder {

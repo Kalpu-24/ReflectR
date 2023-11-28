@@ -131,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:id="@+id/name"
+                android:imeOptions="actionNext"
                 android:textColor="@color/material_dynamic_primary40"
                 android:textColorHighlight="@drawable/text_highlight"
                 android:textColorHint="@drawable/text_hint_color"
@@ -185,6 +186,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:id="@+id/email"
+                android:imeOptions="actionNext"
                 android:textColor="@color/material_dynamic_neutral40"
                 android:textColorHighlight="@drawable/text_highlight"
                 android:textColorHint="@drawable/text_hint_color"
@@ -241,6 +243,7 @@
                 android:id="@+id/age"
                 android:inputType="number"
                 android:maxLength="2"
+                android:imeOptions="actionNext"
                 android:textColor="@color/material_dynamic_neutral40"
                 android:textColorHighlight="@drawable/text_highlight"
                 android:textColorHint="@drawable/text_hint_color"
@@ -305,6 +308,7 @@
                     android:textColor="@color/material_dynamic_neutral40"
                     android:textColorHighlight="@drawable/text_highlight"
                     android:maxLines="1"
+                    android:imeOptions="actionNext"
                     android:id="@+id/city"
                     android:textColorHint="@drawable/text_hint_color"
                     tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
@@ -346,6 +350,7 @@
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:id="@+id/country"
+                    android:imeOptions="actionNext"
                     android:textColor="@color/material_dynamic_neutral40"
                     android:textColorHighlight="@drawable/text_highlight"
                     android:textColorHint="@drawable/text_hint_color"
@@ -422,9 +427,23 @@
             app:layout_constraintWidth_percent=".85"
             tools:ignore="VisualLintButtonSize" />
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:indeterminateTint="@color/material_dynamic_primary60"
+            android:progressTint="@color/material_dynamic_primary60"
+            android:visibility="invisible"
+            android:clickable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bio_layout"
+            app:layout_constraintWidth_percent=".85" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginEnd="411dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

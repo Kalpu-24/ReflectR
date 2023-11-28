@@ -15,6 +15,16 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">38%</item>
     </style>
-
+    <style name="BottomNavigationView">
+        <item name="colorSecondaryContainer">@color/material_dynamic_primary90</item>
+    </style>
+    <style name="MyFAB">
+        <item name="colorPrimaryContainer">@color/material_dynamic_primary95</item>
+        <item name="colorOnPrimaryContainer">@color/material_dynamic_primary50</item>
+    </style>
+    <style name="slightRoundedImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
     <style name="Theme.ReflectR" parent="Base.Theme.ReflectR" />
 </resources>

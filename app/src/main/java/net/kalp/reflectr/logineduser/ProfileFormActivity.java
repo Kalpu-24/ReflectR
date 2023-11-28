@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -25,11 +26,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import net.kalp.reflectr.DefaultMoods;
 import net.kalp.reflectr.R;
+import net.kalp.reflectr.models.Mood;
 import net.kalp.reflectr.models.User;
 
 import java.io.ByteArrayOutputStream;
@@ -40,6 +44,7 @@ public class ProfileFormActivity extends AppCompatActivity {
     ImageView profile_pic;
     TextInputEditText name, email, age, bio, city, country;
     Button submit;
+    ProgressBar progressBar;
     Boolean isProfilePicSelected = false;
     ActivityResultLauncher<PickVisualMediaRequest> pickMedia = registerForActivityResult(
             new ActivityResultContracts.PickVisualMedia(),
@@ -77,6 +82,7 @@ public class ProfileFormActivity extends AppCompatActivity {
         city = findViewById(R.id.city);
         country = findViewById(R.id.country);
         submit = findViewById(R.id.Submit);
+        progressBar = findViewById(R.id.progress_bar);
         profile_pic.setOnClickListener(view -> pickMedia.launch(new PickVisualMediaRequest.Builder()
                 .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
                 .build()));
@@ -92,10 +98,12 @@ public class ProfileFormActivity extends AppCompatActivity {
             } else if (!isProfilePicSelected) {
                 Toast.makeText(getApplicationContext(), "Please select a profile picture", Toast.LENGTH_SHORT).show();
             } else {
+                progressBar.setVisibility(View.VISIBLE);
+                submit.setVisibility(View.INVISIBLE);
+                submit.setClickable(false);
                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 if (firebaseUser != null) {
                     FirebaseStorage storage = FirebaseStorage.getInstance();
-                    //upload profile pic and get the url
                     profile_pic.setDrawingCacheEnabled(true);
                     profile_pic.buildDrawingCache();
                     Bitmap bitmap = ((BitmapDrawable) profile_pic.getDrawable()).getBitmap();
@@ -130,9 +138,17 @@ public class ProfileFormActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Profile Completed", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                                 finish();
-                            }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show());
+                            }).addOnFailureListener(e -> {
+                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.INVISIBLE);
+                                submit.setVisibility(View.VISIBLE);
+                                submit.setClickable(true);
+                            });
                         } else {
                             Toast.makeText(getApplicationContext(), "Error uploading profile pic", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.INVISIBLE);
+                            submit.setVisibility(View.VISIBLE);
+                            submit.setClickable(true);
                         }
                     });
                 }
