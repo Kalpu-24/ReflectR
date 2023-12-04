@@ -24,6 +24,11 @@ public class Mood {
         this.count = count;
         this.level = level;
     }
+    public Mood(String title, Integer count, Integer level) {
+        this.title = title;
+        this.count = count;
+        this.level = level;
+    }
 
     public @DrawableRes Integer getEmoji() {
         return emoji;

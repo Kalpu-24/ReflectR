@@ -1,7 +1,8 @@
-package net.kalp.reflectr;
+package net.kalp.reflectr.setup;
 
 import androidx.annotation.DrawableRes;
 
+import net.kalp.reflectr.R;
 import net.kalp.reflectr.models.Mood;
 
 public class DefaultMoods {

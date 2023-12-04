@@ -4,15 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary95"
     tools:context=".logineduser.HomeFragemnts.JournalsFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/material_dynamic_primary95"
+        android:id="@+id/appBarLayout"
+        android:paddingEnd="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/topappbar"
+            android:background="@color/material_dynamic_primary95"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/journal_menu"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/material_dynamic_primary10" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shimmerFrameLayout"
+        android:layout_margin="20dp"
+        android:layout_marginTop="-20dp"
+        app:shimmer_auto_start="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:shimmer_duration="1800">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/calendar_shimmer" />
+
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+            <include layout="@layout/journal_recycler_placeholder" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/journal_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="200dp"
+        android:clipToPadding="false"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

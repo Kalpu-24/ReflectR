@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 
 import com.google.firebase.firestore.ServerTimestamp;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class Journal {
     private String content;
     private String date;
     private String time;
-    private Mood mood;
+    private Integer moodLevel;
     private String owner_uid;
     private boolean is_private;
     private boolean is_media_present;
@@ -26,12 +25,12 @@ public class Journal {
     public Journal() {
     }
 
-    public Journal(String title, String content, String date, String time, Mood mood, String owner_uid, boolean is_private, boolean is_media_present, List<String> emotion_tags, String category) {
+    public Journal(String title, String content, String date, String time, Integer moodLevel, String owner_uid, boolean is_private, boolean is_media_present, List<String> emotion_tags, String category) {
         this.title = title;
         this.content = content;
         this.date = date;
         this.time = time;
-        this.mood = mood;
+        this.moodLevel = moodLevel;
         this.owner_uid = owner_uid;
         this.is_private = is_private;
         this.is_media_present = is_media_present;
@@ -39,17 +38,29 @@ public class Journal {
         this.category = category;
     }
 
-    public Journal(String title, String content, String date, String time, Mood mood, String owner_uid, boolean is_private, boolean is_media_present, Media media, List<String> emotion_tags, String category) {
+    public Journal(String title, String content, String date, String time, Integer moodLevel, String owner_uid, boolean is_private, boolean is_media_present, Media media, List<String> emotion_tags, String category) {
         this.title = title;
         this.content = content;
         this.date = date;
         this.time = time;
-        this.mood = mood;
+        this.moodLevel = moodLevel;
         this.owner_uid = owner_uid;
         this.is_private = is_private;
         this.is_media_present = is_media_present;
         this.media = media;
         this.emotion_tags = emotion_tags;
+        this.category = category;
+    }
+
+    public Journal(String title, String content, String date, String time, String ownerUid, boolean isPrivate, boolean isMediaPresent, List<String> emotionTags, String category) {
+        this.title = title;
+        this.content = content;
+        this.date = date;
+        this.time = time;
+        this.owner_uid = ownerUid;
+        this.is_private = isPrivate;
+        this.is_media_present = isMediaPresent;
+        this.emotion_tags = emotionTags;
         this.category = category;
     }
 
@@ -85,12 +96,12 @@ public class Journal {
         this.time = time;
     }
 
-    public Mood getMood() {
-        return mood;
+    public Integer getMoodLevel() {
+        return moodLevel;
     }
 
-    public void setMood(Mood mood) {
-        this.mood = mood;
+    public void setMoodLevel(Integer moodLevel) {
+        this.moodLevel = moodLevel;
     }
 
     public String getOwner_uid() {
@@ -165,7 +176,7 @@ public class Journal {
                 ", content='" + content + '\'' +
                 ", date=" + date +
                 ", time=" + time +
-                ", mood='" + mood + '\'' +
+                ", mood='" + moodLevel + '\'' +
                 ", owner_uid='" + owner_uid + '\'' +
                 ", is_private=" + is_private +
                 ", is_media_present=" + is_media_present +
@@ -181,7 +192,7 @@ public class Journal {
         private String content;
         private String date;
         private String time;
-        private Mood mood;
+        private Integer moodLevel;
         private String weather;
         private String location;
         private String owner_uid;
@@ -216,11 +227,15 @@ public class Journal {
             return this;
         }
 
-        public Builder setMood(Mood mood) {
-            this.mood = mood;
+        public Builder setMoodLevel(Integer moodLevel) {
+            this.moodLevel = moodLevel;
             return this;
         }
 
+        public Builder setMedia(Media media) {
+            this.media = media;
+            return this;
+        }
         public Builder setOwner_uid(String owner_uid) {
             this.owner_uid = owner_uid;
             return this;
@@ -233,11 +248,6 @@ public class Journal {
 
         public Builder setIs_media_present(boolean is_media_present) {
             this.is_media_present = is_media_present;
-            return this;
-        }
-
-        public Builder setMedia(Media media) {
-            this.media = media;
             return this;
         }
 
@@ -262,7 +272,7 @@ public class Journal {
         }
 
         public Journal build() {
-            return new Journal(title, content, date, time, mood, owner_uid, is_private, is_media_present, media, emotion_tags, category);
+            return new Journal(title, content, date, time, moodLevel, owner_uid, is_private, is_media_present, media, emotion_tags, category);
         }
     }
 }

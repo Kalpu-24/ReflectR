@@ -18,6 +18,9 @@ public class NoNetworkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_network);
+
+
+        //hiding action bar and setting status bar and nav bar color
         if(getSupportActionBar()!=null)
             getSupportActionBar().hide();
         if (getActionBar()!=null)
@@ -31,7 +34,13 @@ public class NoNetworkActivity extends AppCompatActivity {
             return;
         }
         windowInsetsController.setAppearanceLightStatusBars(true);
+
+
+        //initializing views
         reload = findViewById(R.id.reload);
+
+
+        //reload to go back to splash activity
         reload.setOnClickListener(v -> {
             finish();
             startActivity(new Intent(getApplicationContext(),SplashActivity.class));

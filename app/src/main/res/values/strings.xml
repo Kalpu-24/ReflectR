@@ -39,4 +39,9 @@
     <string name="public_string">Public</string>
     <string name="add_journal">Add Journal</string>
     <string name="title">Title</string>
+    <string name="please_wait">Please Wait...</string>
+    <string name="add">Add</string>
+    <string name="avg_mood">Avg mood</string>
+    <string name="ok">ok</string>
+    <string name="cancel">Cancel</string>
 </resources>

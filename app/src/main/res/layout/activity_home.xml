@@ -38,10 +38,10 @@
         app:rippleColor="@color/material_dynamic_primary40" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         android:id="@+id/fragment_container_view"
         android:name="net.kalp.reflectr.logineduser.HomeFragemnts.JournalsFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

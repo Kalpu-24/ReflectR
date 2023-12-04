@@ -6,7 +6,10 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,14 +32,12 @@ public class HomeActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         if (getActionBar()!=null)
             getActionBar().hide();
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        //noinspection deprecation
-        WindowInsetsControllerCompat windowInsetsController =
-                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
-        if (windowInsetsController == null) {
-            return;
-        }
-        windowInsetsController.setAppearanceLightStatusBars(true);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+        getWindow().setStatusBarColor(getResources().getColor(com.google.android.material.R.color.material_dynamic_primary95,null));
+        getWindow().setNavigationBarColor(Color.TRANSPARENT);
+        Window window = getWindow();
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
         addJournalFAB = findViewById(R.id.addJournalFAB);
         bottomNavigationView = findViewById(R.id.bottom_navigation_bar);
         addJournalFAB.setOnClickListener(view -> {

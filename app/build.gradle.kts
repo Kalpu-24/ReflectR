@@ -35,6 +35,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -42,6 +43,11 @@ android {
 
 dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("com.kizitonwose.calendar:view:2.4.0")
+    implementation("com.kizitonwose.calendar:core:2.4.0")
     implementation("com.github.massoudss:waveformSeekBar:5.0.2")
     implementation("com.github.lincollincol:amplituda:2.2.2")
     implementation("androidx.activity:activity:1.8.1")

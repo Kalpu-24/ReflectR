@@ -28,6 +28,9 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //hiding action bar and setting status bar and nav bar color
         if(getSupportActionBar()!=null)
             getSupportActionBar().hide();
         if (getActionBar()!=null)
@@ -41,18 +44,30 @@ public class WelcomeActivity extends AppCompatActivity {
             return;
         }
         windowInsetsController.setAppearanceLightStatusBars(true);
+
+
+        //initializing views
         logo = findViewById(R.id.logo);
         appName = findViewById(R.id.appName);
         appDesc = findViewById(R.id.desc);
         getStarted = findViewById(R.id.getStarted);
+
+
+        //setting animations
         anim = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         logo.startAnimation(anim);
         appName.startAnimation(anim);
         appDesc.startAnimation(anim);
         getStarted.startAnimation(anim);
+
+
+        //setting onclick listener
         getStarted.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),LoginActivity.class)));
     }
 
+
+
+    //on back pressed
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {

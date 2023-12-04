@@ -26,14 +26,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import net.kalp.reflectr.DefaultMoods;
 import net.kalp.reflectr.R;
-import net.kalp.reflectr.models.Mood;
 import net.kalp.reflectr.models.User;
 
 import java.io.ByteArrayOutputStream;

@@ -50,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+        //hiding action bar and setting status bar and nav bar color
         if(getSupportActionBar()!=null)
             getSupportActionBar().hide();
         if (getActionBar()!=null)
@@ -64,6 +67,9 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
         windowInsetsController.setAppearanceLightStatusBars(true);
+
+
+        //initializing views
         phone_number_layout = findViewById(R.id.phone_number_layout);
         phone_number = findViewById(R.id.phone_number);
         get_otp = findViewById(R.id.get_otp);
@@ -72,14 +78,22 @@ public class LoginActivity extends AppCompatActivity {
         resend_otp = findViewById(R.id.resend_otp);
         otp.setHideLineWhenFilled(false);
 
+
+        //resend otp click listeners
         resend_otp.setOnClickListener(v -> {
             resend_otp.setVisibility(View.INVISIBLE);
             resend_otp.setClickable(false);
             progress_bar.setVisibility(View.VISIBLE);
             signIn();
         });
+
+
+        //get otp click listener
         get_otp.setOnClickListener(v -> {
             phone_number_text = Objects.requireNonNull(phone_number.getText()).toString();
+
+
+            //validating phone number
             if (phone_number_text.equals("")) {
                 phone_number_layout.setError("Please enter your phone number");
                 Toast.makeText(getApplicationContext(), "Please enter your phone number", Toast.LENGTH_SHORT).show();
@@ -98,7 +112,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    //sign in function
     void signIn() {
+
+
+        //initializing views
         phone_number_layout = findViewById(R.id.phone_number_layout);
         phone_number = findViewById(R.id.phone_number);
         get_otp = findViewById(R.id.get_otp);
@@ -106,17 +126,25 @@ public class LoginActivity extends AppCompatActivity {
         otp = findViewById(R.id.otp_view);
         resend_otp = findViewById(R.id.resend_otp);
         otp.setHideLineWhenFilled(false);
+
+
+        //sending request to firebase
         PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
                 .setPhoneNumber(phone_number_text)
                 .setTimeout(60L, TimeUnit.SECONDS)
                 .setActivity(this)
                 .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+
+                    //on verification completed call userAfterLogin function
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                         Toast.makeText(getApplicationContext(), "Verification Completed", Toast.LENGTH_SHORT).show();
                         userAfterLogin();
                     }
 
+
+                    //on verification failed show error message and reset views
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -129,6 +157,9 @@ public class LoginActivity extends AppCompatActivity {
                         progress_bar.setVisibility(View.INVISIBLE);
                     }
 
+
+
+                    //on code sent show otp view and set text change listener
                     @Override
                     public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         super.onCodeSent(verificationId, forceResendingToken);
@@ -149,6 +180,9 @@ public class LoginActivity extends AppCompatActivity {
 
                             @Override
                             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+
+                                //if otp length is 6 then sign in with credential
                                 if (Objects.requireNonNull(otp.getText()).toString().length()==6) {
                                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp.getText().toString());
                                     FirebaseAuth.getInstance().signInWithCredential(credential)
@@ -171,26 +205,45 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 })
                 .build();
+
+
+        //sending otp
         PhoneAuthProvider.verifyPhoneNumber(phoneAuthOptions);
     }
+
+
+    //user after login function
     public void userAfterLogin(){
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         assert firebaseUser != null;
         String userUid = firebaseUser.getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+        //checking if user is already registered or not
         db.collection("users").document(userUid).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 assert document != null;
                 if (document.exists()) {
+
+
+                    //if user is already registered then check if profile is completed or not
                     if (Boolean.TRUE.equals(document.getBoolean("is_profile_completed"))){
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         finish();
-                    } else {
+                    }
+
+
+                    //if profile is not completed then go to profile form activity
+                    else {
                         startActivity(new Intent(getApplicationContext(), ProfileFormActivity.class));
                         finish();
                     }
                 } else {
+
+
+                    //if user is not registered then add user to database and go to profile form activity
                     User user = new User(false,firebaseUser.getPhoneNumber());
                     db.collection("users").document(userUid).set(user)
                             .addOnSuccessListener(aVoid -> {
